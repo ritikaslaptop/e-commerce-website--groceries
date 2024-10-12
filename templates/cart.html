@@ -1,0 +1,134 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>cart</title>
+  <link rel="stylesheet" href="/static/final-cart.css">
+  <link rel="shortcut icon" href="/static/img/logo.png">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <style>
+    body {
+      background-image: url('/static/img/cartbg.png');
+    }
+  </style>
+  <nav>
+    <img src="/static/img/logo.png" ;width=75 ; height=75>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+      <li><a href="/products">products</a></li>
+      <li><a class="active" href="/cart">cart</a></li>
+      <li><a href="/logout">logout</a></li>
+    </ul>
+  </nav>
+
+  <head>
+    <title>cart</title>
+    <link rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+        </div>
+        <div class="table">
+          <table class="table table-bordered table-striped text-center">
+            <thead>
+              <tr>
+                <td colspan="7">
+                  <h4 class="text-center text-info m-0">alright,let's see what we've got there...</h4>
+                </td>
+              </tr>
+              <tr>
+                <th>no</th>
+                <th>product</th>
+                <th>product name</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>total</th>
+                <th>
+                  <form method="POST">
+                    <button name="deleteCart" value="True" class="badge-danger badge p-1"
+                      onclick="return confirm('Are you sure want to clear your cart?');"><i
+                        class="fas fa-trash"></i>&nbsp;&nbsp;clear all</button>
+                  </form>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for i in range(cartlength) %}
+                <td>
+                  {{i+1}}
+                  <?= $row['id'] ?>
+                </td>
+                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
+                <td><img src="/static/img/{{cartitems[i][0]}}.webp" width="50"></td>
+                <td>
+                  {{cartitems[i][0]}}
+                  <?= $row['product_name'] ?>
+                </td>
+                <td>
+                  <i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;
+                  {{prices[cartitems[i][0]]}}
+                  <?= number_format($row['product_price'],2); ?>
+                </td>
+                <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
+                <td>
+
+                  <div class="quantity">
+                    <form method="POST">
+                      <button name="decrement" value="{{cartitems[i][0]}}" class="btn minus1">-</button>
+                      {{cartitems[i][1]}}
+                      <button name="increment" value="{{cartitems[i][0]}}" class="btn add1">+</button>
+                    </form>
+                </td>
+                <td><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;
+                  {{prices[cartitems[i][0]]*cartitems[i][1]}}
+                  <?= number_format($row['total_price'],2); ?>
+                </td>
+                <td>
+                  <form method="POST">
+                    <button name="delete" value="{{cartitems[i][0]}}"><i class=" fas fa-trash-alt"></i></button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><b><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;
+                  {{totalprice}}
+                  <?= number_format($grand_total,2); ?>
+                </b></td>
+              <td>
+                <form method="POST">
+                  <button name="checkout" value="True" class="btn btn-info <?= ($grand_total > 1) ? '' >"><i
+                      class="far fa-credit-card"></i>checkout</button>
+                </form>
+              </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+  </body>
+
+</html>
+{% endblock %}

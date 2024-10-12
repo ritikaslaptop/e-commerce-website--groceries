@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>signup</title>
+  <link rel="stylesheet" href="/static/main.css">
+  <link rel="shortcut icon" href="/static/img/logo.png">
+</head>
+
+<body>
+  <nav>
+    <img src="/static/img/logo.png" ;width=75 ; height=75>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">shop name</label>
+    <ul>
+      <li><a href="/products">products</a></li>
+      <li><a href="/cart">cart</a></li>
+      <li><a href="/logout">logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="center">
+    <h1>let's get you started</h1>
+    <form method="post">
+      <div class="txt_field">
+        <input type="text" name="newusername" required>
+        <span></span>
+        <label>*enter contact number/e-mail*</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="newpassword" required>
+        <span></span>
+        <label>*pick a password(max.12 characters)*</label>
+      </div>
+      <input type="submit">
+      <div class="signup_link">
+
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>

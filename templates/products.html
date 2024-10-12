@@ -1,0 +1,112 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>products</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="shortcut icon" href="/static/img/logo.png">
+</head>
+
+<body>
+  <nav>
+    <img src="/static/img/logo.png" ;width=75 ; height=75>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+      <li><a class="active" href="/products">products</a></li>
+      <li><a href="/cart">cart</a></li>
+      <li><a href="/logout">logout</a></li>
+    </ul>
+  </nav>
+  </input>
+
+  <div class="container">
+
+    <h3 class="title">
+      <mark>welcome, {{g.user.username}}!</mark>
+      <br>
+      <mark>[🏪] : it's a fresh day, and we've got : </mark>
+    </h3>
+
+
+    <div class="products-container">
+      <div class="product" data-name="p-1">
+        <img src="/static/img/white sandwich bread.webp" alt="">
+        <h3>white sandwich bread</h3>
+        <div class="price">65 INR</div>
+        <div class="buttons">
+          <form method="POST">
+            <button name="addToCart" value="white sandwich bread"> add to cart</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="product" data-name="p-2">
+        <img src='/static/img/chocolate chip muffins.webp' alt="">
+        <h3>chocolate chip muffins</h3>
+        <div class="price">125 INR</div>
+        <div class="buttons">
+          <form method="POST">
+            <button name="addToCart" value="chocolate chip muffins">add to cart</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="product" data-name="p-3">
+        <img src='/static/img/sliced loaf cake.webp' alt="">
+        <h3>sliced loaf cake</h3>
+        <div class="price">150 INR</div>
+        <div class="buttons">
+          <form method="POST">
+            <button name="addToCart" value="sliced loaf cake">add to cart</button>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="product" data-name="p-5">
+        <img src='/static/img/filtered milk.webp' alt="">
+        <h3>filtered milk</h3>
+        <div class="price">160 INR</div>
+        <div class="buttons">
+          <form method="POST">
+            <button name="addToCart" value="filtered milk">add to cart</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="product" data-name="p-5">
+        <img src='/static/img/white eggs (18x).webp' alt="">
+        <h3>white eggs (18x)</h3>
+        <div class="price">195 INR</div>
+        <div class="buttons">
+          <form method="POST">
+            <button name="addToCart" value="white eggs (18x)">add to cart</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="product" data-name="p-6">
+        <img src='/static/img/cream cheese (8 oz.).webp' alt="">
+        <h3>cream cheese (8 oz.)</h3>
+        <div class="price">120 INR</div>
+        <div class="buttons">
+          <form method="POST">
+            <button name="addToCart" value="cream cheese (8 oz.)">add to cart</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+{% endblock %}
